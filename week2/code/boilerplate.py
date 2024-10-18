@@ -24,6 +24,9 @@ def main(argv):
     print('This is a boilerplate')
     return 0
 
+# sys.exit("I am exiting right now!")
+# Try putting it here and 'This is a boilerplate' won't show up
+
 if __name__ == "__main__":
     """Makes sure the "main" function is called from command line"""
     status = main(sys.argv)

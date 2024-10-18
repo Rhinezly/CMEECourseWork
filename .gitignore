@@ -1,0 +1,12 @@
+sandbox/
+*.*
+!.gitignore
+!*.py
+!*.R
+!*.sh
+!*.tex
+!*.bib
+!*.fasta
+!*.csv
+!*.txt
+!*.md

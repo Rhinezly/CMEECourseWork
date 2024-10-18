@@ -31,7 +31,7 @@ def hello_4(x):
         print('hello')
         x = x + 3
         if x >15:
-            break
+            break  # add a break in case x never reaches 15 and it loops forever
     print(' ')
 
 hello_4(0)
