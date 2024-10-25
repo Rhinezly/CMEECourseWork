@@ -1,4 +1,21 @@
+#!/usr/bin/env python3
+
+"""
+Demonstrates debug methods using ipdb and "try...except...".
+"""
+
 def buggyfunc(x):
+    """Perform a series of divisions of x by decreasing values of y, handling potential errors.
+
+    Args:
+        x (int): The number to be used for division.
+
+    Returns:
+        float: The last successful result of the division operation.
+    
+    Raises:
+        ValueError: If x is less than or equal to zero, as division by zero will occur.
+    """
     y = x
     for i in range(x):
         try:

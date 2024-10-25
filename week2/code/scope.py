@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+
+"""
+This script demonstrates the difference between local and global variables in Python.
+It showcases how variable scope works, both within functions and across different namespaces.
+
+Key concepts illustrated:
+- Comparison of local and global variables.
+- Effects of function calls on variable values.
+- Using the `global` keyword to modify global variables within functions.
+"""
+
 ## Compare local and global variables
 
 i = 1
@@ -50,7 +62,7 @@ a_function()
 print("After calling a_function, outside the function, the value of _a_global is (still)", _a_global)
 print("After calling a_function, outside the function, the value of _b_global is (still)", _b_global)
 print("After calling a_function, outside the function, the value of _a_local is _a_local")
-# _a_local not defined outside the function
+# _a_local not defined outside the function, calling its value will raise an error
 
 ## Compare the above with:
  

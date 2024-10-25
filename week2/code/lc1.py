@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+This script processes a tuple of bird species, extracting their Latin names,
+common names, and mean body masses using both list comprehensions and 
+conventional loops.
+"""
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),
@@ -19,35 +27,35 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
 # ... etc.
 
 
-## Latin names:
-# (1) List comprehension:
+# (1) Latin names
+# List comprehension
 latin = [i[0] for i in birds]
-latin
+print("Latin names (list comprehension):", latin)
 
-# (2) Conventional loop:
-latin = []
+# Conventional loop
+latin_loop = []
 for i in birds:
-    latin.append(i[0])
-latin
+    latin_loop.append(i[0])
+print("Latin names (conventional loop):", latin_loop)
 
-## Common names
-# (1)
+# (2) Common names
+# List comprehension
 common = [i[1] for i in birds]
-common
+print("Common names (list comprehension):", common)
 
-# (2)
-common = []
+# Conventional loop
+common_loop = []
 for i in birds:
-    common.append(i[1])
-common
+    common_loop.append(i[1])
+print("Common names (conventional loop):", common_loop)
 
-## Body masses:
-# (1)
+# (3) Body masses
+# List comprehension
 mass = [i[2] for i in birds]
-mass
+print("Body masses (list comprehension):", mass)
 
-# (2)
-mass = []
+# Conventional loop
+mass_loop = []
 for i in birds:
-    mass.append(i[2])
-mass
+    mass_loop.append(i[2])
+print("Body masses (conventional loop):", mass_loop)

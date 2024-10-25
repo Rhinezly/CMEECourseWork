@@ -22,7 +22,7 @@ if [ ! -f "$1" ]; then
         exit
 fi
 
-echo "Creaing a comma delimited version of $1 ..."
+echo "Creating a comma delimited version of $1 ..."
 cat $1 | tr -s "\t" "," >> ${1%.txt}.csv
 echo "Done!"
 exit

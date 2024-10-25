@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+This script creates a dictionary mapping taxonomic orders to sets of taxa 
+derived from a predefined list of taxa. It includes a standard approach 
+and a list comprehension method to achieve the same result.
+"""
+
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
          ('Peromyscus crinitus', 'Rodentia'),

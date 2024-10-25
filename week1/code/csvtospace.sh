@@ -1,7 +1,7 @@
 #!/bin/sh
 # Author: Laiyin Zhou (l.zhou24@imperial.ac.uk)
 # Script: csvtospace.sh
-# Description: converts a csv file to a space seperated values file.
+# Description: converts a csv file to a space separated values file.
 # Saves the output into a new .txt file
 # Arguments: 1 -> comma delimited file
 # Date: Oct 2024
@@ -21,7 +21,7 @@ if [ ! -f "$1" ]; then
         exit
 fi
 
-echo "Creating a space seperated version of $1 ..."
+echo "Creating a space separated version of $1 ..."
 cat $1 | tr -s "," "\t" >> ${1%.csv}.txt
 echo "Done!"
 exit

@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""
+This script processes monthly rainfall data for the UK in 1910,
+extracting months with rainfall greater than 100 mm and less than 50 mm
+using both list comprehensions and conventional loops.
+"""
+
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
 rainfall = (('JAN',111.4),
@@ -31,26 +39,27 @@ rainfall = (('JAN',111.4),
 # ... etc.
 
 
-## (1) Months and rainfalls with the amount of rain greater than 100mm:
-# List comprehension:
-greater_100_rainfall = [n for n in rainfall if n[1] > 100]
-greater_100_rainfall
 
-# Conventional loop:
-greater_100_rainfall = []
+# (1) Months and rainfalls with the amount of rain greater than 100mm:
+# List comprehension
+greater_100_rainfall = [n for n in rainfall if n[1] > 100]
+print("Months and rainfall values when the amount of rain was greater than 100mm (list comprehension):", greater_100_rainfall)
+
+# Conventional loop
+greater_100_rainfall_loop = []
 for n in rainfall:
     if n[1] > 100:
-        greater_100_rainfall.append(n)
-greater_100_rainfall
+        greater_100_rainfall_loop.append(n)
+print("Months and rainfall values when the amount of rain was greater than 100mm (conventional loop):", greater_100_rainfall_loop)
 
-## (2) Months and rainfalls with the amount of rain less than 50mm:
-# List comprehension:
-less_50_rainfall = [n for n in rainfall if n[1] < 50]
-less_50_rainfall
+# (2) Months with the amount of rain less than 50mm:
+# List comprehension
+less_50_rainfall = [n[0] for n in rainfall if n[1] < 50]
+print("Months with rainfall less than 50mm (list comprehension):", less_50_rainfall)
 
-# Conventional loop:
-less_50_rainfall = []
+# Conventional loop
+less_50_rainfall_loop = []
 for n in rainfall:
     if n[1] < 50:
-        less_50_rainfall.append(n)
-less_50_rainfall
+        less_50_rainfall_loop.append(n[0])  # Append only the month name
+print("Months with rainfall less than 50mm (conventional loop):", less_50_rainfall_loop)

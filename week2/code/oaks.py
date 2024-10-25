@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+
+"""
+This script identifies oak tree taxa from a predefined list of species names.
+It provides two methods for identifying oaks: using traditional for loops and
+list comprehensions. Additionally, it converts the names of the identified oaks
+to uppercase format using both methods.
+"""
+
+
 ## Find oak tree taxa from the list
 
 taxa = ['Quercus robur',
@@ -8,6 +18,14 @@ taxa = ['Quercus robur',
         ]
 
 def is_an_oak(name):
+    """Check if the given name is an oak species.
+
+    Args:
+        name (str): The name of the species.
+
+    Returns:
+        bool: True if the name starts with 'quercus', otherwise False.
+    """
     return name.lower().startswith('quercus')  # or just return name.startswith('Quercus')
 
 ## Using for loops

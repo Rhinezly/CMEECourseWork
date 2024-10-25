@@ -1,53 +1,60 @@
 # CMEE Week2 Coursework
 
-This directory contains the in-class practices and praticals for biological computating bootcamp week2. Contents covered Python basic sytax and structures. All the teaching materials and practical questions are on https://themulquabio.github.io/TMQB/intro.html.
+This directory contains the in-class practices and practicals for biological computating bootcamp week2. The content covers basic Python syntax and structures. All teaching materials and practical questions are on https://themulquabio.github.io/TMQB/intro.html.
 
-All codes in this project were written in and tested with Python 3.12.3, on Visual Studio Code 1.94.2 and bash terminal of Ubuntu 24.04.1 LTS.
+All scripts were written and tested using Python 3.12.3, on Visual Studio Code 1.94.2 and the bash terminal on Ubuntu 24.04.1 LTS.
 
 ## Usage
 
 ### Running the scripts
 
-- You can run all the scripts without any input. Ensure your working environment is where the scripts are (../week2/code).
+You can run all the scripts without any input. Ensure your working environment is set to the directory containing the scripts (`../week2/code`).
 
-**From the UNIX shell:**
-Open a bash terminal and `cd` to the week2 `code` directory. Then run the command:
-
-`python3 ScriptName.py`
-
-**You can also use ipython from the shell:**
-
-`ipython3 ScriptName.py`
-
-**From within the ipyhon shell:**
-Enter `ipython3` from bash and run this command:
-
-`%run Scriptname.py` 
-
-- Alternatively, some scripts are Python programmes, so you can also choose to use their inbuild functions after importing.
-
-`import ScriptName`
-`ScriptName.Function(Argument1, Argument2, ...)` 
-
-If no argument entered from user, the function will run by default argument.
-
-You can check programme descriptions and functions after importing, by using `help(ScriptName)` or `?ScriptName` in the python or ipython shell.
-
-For `align_seqs_fasta.py` and `align_seqs_better.py`, specifically, while it could run without explicit inputs, you can choose to input any two fasta sequences in seperate files to be aligned. With shell command, for exmaple:
+- **From the UNIX shell:**
+1. Exit from the Python console using `ctrl+D`, or open a bash terminal.
+2. `cd` to the `week2/code` directory. 
+3. Run the command:
 
 ```bash
-python3 align_seqs_fasta.py seq1.fasta seq2.fasta
+python3 ScriptName.py
 ```
+
+- **Using ipython from the shell:**
+
+```bash
+ipython3 ScriptName.py
+```
+
+- **From within the ipyhon shell:**
+1. Enter `ipython3` from bash 
+2. Run the script with:
+
+```ipython
+%run Scriptname.py
+``` 
+
+Alternatively, some scripts are Python programmes, so you can imprt them and use their built-in functions:
+
+```python
+import ScriptName
+ScriptName.Function(Argument1, Argument2, ...)
+``` 
+
+If no arguments are provided by the user, the function will execute with its default arguments.
+
+To check programme descriptions and functions after importing, you can use `help(ScriptName)` or `?ScriptName` in the python or ipython shell.
 
 ### Project structure
 
-The `code` directory includes all scripts for Biological computing in Python 1. Scripts can be used as Python programmes are: `align*.py`, `*control_flow.py`, `boilerplate.py`, `cfexercises1.py`, `oaks_debugme.py`.
+- `code/`: Contains all scripts for Biological computing in Python 1. Scripts can be used as standalone Python programmes include: `align*.py`, `*control_flow.py`, `boilerplate.py`, `cfexercises1.py` and `oaks_debugme.py`.
 
-The `data` directory contains neccessary CSV and FASTA files to run the scripts. The `results` directory is empty and will hold a binary file `my_best_align` as resulting output from `align_seqs_better.py`.
+- `data/`: Contains the required CSV and FASTA files to run the scripts. 
+
+- `results/`: this directory is initially empty and will store a CSV file `JustOaksData.csv` as the result output from `oaks_debugme.py`.
 
 ### Dependencies
 
-Python modules `csv`, `sys`, `pickle`, `doctest` need to be installed if not already on the device or Python environment. You can check whether a module is installed using `pip show <module_name>` in the command line, or try importing the module using Python script:
+You need the following Python modules to run the scripts: `csv`, `sys`, `pickle` and `doctest`. To verify if a module is installed, you can use `pip show <module_name>` in the command line, or try importing the module using Python script:
 
 ```python
 try:
@@ -57,7 +64,23 @@ except ImportError:
     print(f"'{<module_name>}' is not installed.")
 ```
 
-You can install a module in the command line using `sudo apt install python3-<module_name>` or `pip install <module_name>` (if cannot run the `pip` command you need to install `pip` first).
+To install a module, use the following command: 
+
+```bash
+sudo apt install python3-<module_name>
+```
+
+or 
+
+```bash
+pip install <module_name>
+```
+
+If you cannot run the `pip` command, you may need to install `pip` first:
+
+```bash
+sudo apt-get install python3-pip
+```
 
 ## Author
 Laiyin Zhou

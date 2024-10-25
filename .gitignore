@@ -1,6 +1,7 @@
 sandbox/
 *.*
 !.gitignore
+!.gitkeep
 !*.py
 !*.R
 !*.sh
@@ -10,3 +11,4 @@ sandbox/
 !*.csv
 !*.txt
 !*.md
+!*.pdf

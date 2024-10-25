@@ -1,26 +1,32 @@
 #!/usr/bin/env python3
 
-'''Align DNA sequences and find the best alignment.'''
+"""
+Align two DNA sequences from an arbitrary startpoint and find the best alignment.
 
+This script reads two DNA sequences from a CSV file, compares them to find the best alignment
+starting from different positions, and identifies the alignment with the highest match score.
+The longest sequence is used as the reference, and the shorter one is aligned to it.
+"""
+
+__appname__ = 'align_seqs'
 __author__ = 'Laiyin Zhou (l.zhou24@imperial.ac.uk)'
 __version__ = '0.0.1'
 
-
 ## imports ##
-import sys # module to interface our program with the operating system
-import csv  # to read csv files
+import sys  # Module to interface our program with the operating system.
+import csv  # Module to read CSV files.
 
-# Two example sequences to match
+# Two example sequences to match.
 with open('../data/sequences.csv', 'r') as f:
     seq1, seq2 = [row['sequence'] for row in csv.DictReader(f)]  
-    # read the csv as a dictionary; then assign the value of sequence to seq1 and seq2
+    # Reads the CSV as a dictionary and assigns the value of the 'sequence' column to seq1 and seq2.
 
-# Print to verify
+# Print to verify loaded sequences.
 print(f"Seq1: {seq1}")
 print(f"Seq2: {seq2}")
 
-# Assign the longer sequence s1, and the shorter to s2
-# l1 is length of the longest, l2 that of the shortest
+# Determine the longer and shorter sequences.
+# l1 is the length of the longest, and l2 is the length of the shortest.
 
 l1 = len(seq1)
 l2 = len(seq2)
@@ -30,24 +36,37 @@ if l1 >= l2:
 else:
     s1 = seq2
     s2 = seq1
-    l1, l2 = l2, l1 # swap the two lengths
+    l1, l2 = l2, l1  # Swap the two lengths.
 
 
 ## functions ##
-# A function that computes a score by returning the number of matches starting
-# from arbitrary startpoint (chosen by user)
+
 def calculate_score(s1, s2, l1, l2, startpoint):
-    matched = "" # to hold string displaying alignements
-    score = 0
+    """
+    Calculate and return the matching score (number of matches) starting from a given startpoint.
+
+    Parameters:
+        s1 (str): The longer DNA sequence.
+        s2 (str): The shorter DNA sequence.
+        l1 (int): Length of the longer DNA sequence.
+        l2 (int): Length of the shorter DNA sequence.
+        startpoint (int): The starting index for alignment.
+
+    Returns:
+        The score indicating the number of matches from the startpoint.
+    """
+    matched = ""  # String to hold a visual representation of alignments.
+    score = 0  # Counter for the number of matches.
+
     for i in range(l2):
         if (i + startpoint) < l1:
-            if s1[i + startpoint] == s2[i]: # if the bases match
-                matched = matched + "*"
-                score = score + 1
+            if s1[i + startpoint] == s2[i]:  # If the bases match
+                matched += "*"  # mark the matched point
+                score += 1
             else:
-                matched = matched + "-"
+                matched += "-"  # mark the unmatched point
 
-    # some formatted output
+    # Print formatted alignment output.
     print("." * startpoint + matched)           
     print("." * startpoint + s2)
     print(s1)
@@ -56,33 +75,46 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
     return score
 
-# Test the function with some example starting points:
-#calculate_score(s1, s2, l1, l2, 0)
-#calculate_score(s1, s2, l1, l2, 1)
-#calculate_score(s1, s2, l1, l2, 5)
 
-# now try to find the best match (highest score) for the two sequences
 def best_match():
+    """
+    Find and print the best alignment for two sequences with the highest match score.
+
+    Uses the calculate_score function to iterate over possible startpoints for alignment
+    and finds the one with the maximum score.
+    """
     my_best_align = None
     my_best_score = -1
 
-    for i in range(l1): # Note that you just take the last alignment with the highest score
+    for i in range(l1):  # Iterate over possible startpoints.
         z = calculate_score(s1, s2, l1, l2, i)
         if z > my_best_score:
-            my_best_align = "." * i + s2  # format the print output so the alignment shows the startpoint
+            my_best_align = "." * i + s2  # Format the output for the best alignment.
             my_best_score = z 
+
+    # Print the best alignment and its score.
     print(my_best_align)
     print(s1)
     print("Best score:", my_best_score)
 
 
 def main(argv):
-    """ Main entry point of the program """
+    """
+    Main entry point of the program.
+
+    Runs the score calculation from the startpoint of 0 and then searches for the best match.
+
+    Parameters:
+        argv (list): Command-line arguments.
+    """
     calculate_score(s1, s2, l1, l2, 0)
     best_match()
     return 0
 
+
 if __name__ == "__main__":
-    """Makes sure the "main" function is called from command line"""
+    """
+    Ensures the main function is called when the script is executed from the command line.
+    """
     status = main(sys.argv)
     sys.exit(status)
