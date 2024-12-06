@@ -4,6 +4,7 @@ sandbox/
 !.gitkeep
 !*.py
 !*.R
+!*.RData
 !*.sh
 !*.tex
 !*.bib
@@ -12,3 +13,8 @@ sandbox/
 !*.txt
 !*.md
 !*.pdf
+
+!GIS/
+!GIS/practical/
+!GIS/practical/data/
+!GIS/practical/data/**
